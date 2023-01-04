@@ -1,0 +1,82 @@
+<!-- Updates required to JS
+1. Stop and display message instantly if userSum is over 21- done
+2. Stop the  game by deactivating all buttons once 1. happens- done
+2. If the user reaches exactly 21 points, the user instantly wins!- done
+3. The dealer should get two cards when the game starts,one of them should be
+face down- done
+4. The hidden card should be chosen in the beginning but kept hidden- I am choosing it when it is dsplayed
+- 3 points: A "scoreboard" feature to keep track of how many games each side has won.
+- 2 points: Provide a way for the user to reset the scoreboard to 0-0.
+- the dealer cards should be animated in some way
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="blackjack.css">
+    <!-- move this to css with a media decorator -->
+  </head>
+  <body>
+    <div class="container mt-3 top_box">
+      <h1>BlackJack</h1>
+      <div class = "mt-0 row flex justify-content-center">
+        <div class = "scoreboard d-flex flex-column" style="padding: 0">
+          <div id="user_main_buttons">
+            <button class="mt-2 mb-3 btn btn-primary btn-sm" href="#" id="new_game_btn" type="button">New Game</button>
+            <!-- onClick = "window.location.reload();" 
+            onClick="window.location.href=window.location.href"-->
+            <button class="mt-2 mb-3 btn btn-primary btn-sm" href="#" id="reset_btn" type="button">Reset</button>
+              <!-- onclick="window.localStorage.clear();" -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3 hidden" id = "game_box_id" >
+      <h4>Scoreboard</h4>
+      <div class="stats">
+        <p>Games:<span id = "total_games"></span></p>
+        <p>Wins:<span id = "total_wins"></span></p>
+        <p>Losses:<span id = "total_losses"></span></p>
+        <p>Ties:<span id = "total_ties"></span></p>
+      </div>
+
+      <div class="mt-0 row flex justify-content-between">
+        <div class="col-sm-6">
+          <h2> You: <span id = "user_sum"></span></h2>
+          <div id="user_cards" class="mt-5">
+          </div>
+          <div id="user_play_buttons">
+            <a class="ms-5 btn btn-primary btn-primary" href="#" id="user_take_another">Take Another Card</a>
+            <a class="ms-3 btn btn-primary btn-danger" href="#" id="user_stand">Stand</a>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <h2> Dealer: <span id = "dealer_sum"></span></h2>
+          <!-- <h2>Dealer</h2> -->
+          <div id="dealer_cards" class="mt-5">
+            <!-- The dealer also starts with two crads, one is hidden-->
+            <img id="hidden" src="images/face_down.png">
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-0 row flex justify-content-center">
+          <p id = "results"></p>
+      </div>
+      <script src="blackjack.js"></script>
+  </body>
+</html>
+
+
+<!-- Referrences:
+https://www.youtube.com/watch?v=bMYCWccL-3U
+https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click 
+
+-->
